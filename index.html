@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>htmlInput</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="icon" type="image/x-icon" href="/libraries/drdrugus.ico">
+  <script src="libraries/p5.min.js"></script>
+</head>
+
+<body onload="checkStartup('xmax','xmax','ymin','ymax')"> <!--prefill my labels -->
+  
+  <div id="container">
+
+    <h4></h4> <!-- ads spacing above the canvas -->
+    <div id="cvsdiv"></div>
+
+    <h4></h4> <!-- adds spacing under the canvas -->
+
+    <div id="text1">
+    <label for="xmin1">xmin:</label>
+    <input type="text" id="xmin" name="xmin1" size="2" onchange="checkInput('xmin')">
+    <label for="xmax1">xmax:</label>
+    <input type="text" id="xmax" name="xmax1" size="2"  onchange="checkInput('xmax')">
+    <label for="ymin1">ymin:</label>
+    <input type="text" id="ymin" name="ymin1" size="3" onchange="checkInput('ymin')">
+    <label for="xmax1">ymax:</label>
+    <input type="text" id="ymax" name="ymax1" size="3" onchange="checkInput('ymax')">
+    <label for="numXbox1">xBox:</label>
+    <input type="text" id="numXbox" name="numXbox1" size="2" onchange="checkInput('numXbox')">
+    <label for="numYbox1">yBox:</label>
+    <input type="text" id="numYbox" name="numYbox1" size="2" onchange="checkInput('numYbox')">
+      </div> <!-- end div text 1-->
+
+
+    <p id="demo"></p>
+    <p id="demoxmin"></p>
+    <p id="demoxmax"></p>
+    <p id="demoymin"></p>
+    <p id="demoymax"></p>
+    <p id="demonumXbox"></p>
+    <p id="demonumYbox"></p>
+  </div> <!-- end of container div-->
+
+  <script src="functionsToPlot.js"></script>
+  <script src="sketch.js"></script>
+  <script src = "libraries/util.js"> </script>
+</body>
+
+</html>
