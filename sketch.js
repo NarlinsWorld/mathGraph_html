@@ -1,7 +1,7 @@
 /*Variables that come in from html; preset values are in function checkStartup() located in util.js 
 I have gone to a lot of trouble to keep xmin,xmax,ymin,ymax as NOT global variables.
 Is it worth it?
-*/
+*///
 
 
 

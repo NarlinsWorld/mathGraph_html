@@ -3,30 +3,8 @@ drawAxes = function () {
   line(0, -height, 0, height);
   line(-width, 0, width, 0);
 }
+//
 
-drawGrid = function (numXbox, numYbox) {
-  /*show a square at (0,0) in math-units
-  let x1 = map(0, xmin, xmax, 0, width);
-  let y1 = map(0, ymin, ymax, 0, height);
-  rectMode(CENTER);
-  rect(x1,y1,20,20); //all are in canvas units
-*/
-
-  //draw axes lines at math units (0,0) and always exactly fit the canvas.
-  // line draws in canvas units. the vertical math units are (0,ymin) to (0,ymax)
-  let x1 = map(0, xmin, xmax, 0, width);
-  let y1 = map(ymin, ymin, ymax, 0, height);
-  let x2 = map(0, xmin, xmax, 0, width);
-  let y2 = map(ymax,ymin,ymax,0,height);
-  line(x1,y1,x2,y2);
-
-   // line draws in canvas units. the horizontal math units are (xmin,0) to (xmax,0)
-   x1 = map(xmin, xmin, xmax, 0, width);
-   y1 = map(0, ymin, ymax, 0, height);
-   x2 = map(xmax, xmin, xmax, 0, width);
-   y2 = map(0,ymin,ymax,0,height);
-   line(x1,y1,x2,y2);
-}
 
 /*How to use this timer.
 initiate the timer with T1 = new Timer(); //T1 is your variable
