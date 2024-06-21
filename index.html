@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>htmlInput</title>
+  <title>mathGaph_html</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="icon" type="image/x-icon" href="/libraries/drdrugus.ico">
   <script src="libraries/p5.min.js"></script>
@@ -32,6 +32,8 @@
     <input type="text" id="numXbox" name="numXbox1" size="2" onchange="checkInput('numXbox')">
     <label for="numYbox1">yBox:</label>
     <input type="text" id="numYbox" name="numYbox1" size="2" onchange="checkInput('numYbox')">
+    <label for="myScale1">Scale:</label>
+    <input type="text" id="myScale" name="myScale1" size="2" onchange="checkInput('myScale')">
       </div> <!-- end div text 1-->
 
 
@@ -42,6 +44,7 @@
     <p id="demoymax"></p>
     <p id="demonumXbox"></p>
     <p id="demonumYbox"></p>
+    <p id="demomyScale"></p>
   </div> <!-- end of container div-->
 
   <script src="box.js"></script>

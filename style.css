@@ -8,9 +8,8 @@ canvas {
 }
 
 #cvsdiv {
-  background-color: #d4fff0; //sky-blue
+  background-color: #d4fff0; /*sky-blue */
   margin: 30px;
-  
   padding: 1px;
   border: 1px solid red;
   display: block;

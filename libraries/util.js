@@ -37,30 +37,34 @@ class Timer {
 }
 
 function checkStartup() { //this is the onload function called by html
-  let xmin = -15; 
-  let xmax = 15; 
-  let ymin = -10; 
-  let ymax = 250;
+  let xmin = -12;
+  let xmax = 12;
+  let ymin = -10;
+  let ymax = 10;
   let numXbox = 6;
-  let numYbox = 6.5;
+  let numYbox = 10;
+  let myScale = 0.6;
   document.getElementById('xmin').value = xmin; //assumes html initial values are the correct type.
   document.getElementById('xmax').value = xmax;
   document.getElementById('ymin').value = ymin;
   document.getElementById('ymax').value = ymax;
   document.getElementById('numXbox').value = numXbox;
   document.getElementById('numYbox').value = numYbox;
-  let minmax = [xmin,xmax,ymin,ymax,numXbox,numYbox];
+  document.getElementById('myScale').value = myScale;
+  let minmax = [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale];
   return minmax;
 }
 
 /* the function below can be called from html input using onchange("checkInput('elementID')") or oninput()
 In this example, it checks that the input is a valid number. */
+
+
 function checkInput(id1) {
   let text = document.getElementById(id1).value;
   //document.getElementById("demo").innerHTML = "You wrote: " + text;
   let fltn = Number(text);
-  // console.log('id1 is',id1,' and fltn=',fltn);
-  // console.log(Number.isNaN(fltn));
+  console.log('id1 is', id1, ' and fltn=', fltn);
+  console.log(Number.isNaN(fltn));
 
   if (id1 == "xmin") {
     if (Number.isNaN(fltn)) {
@@ -115,10 +119,20 @@ function checkInput(id1) {
       let numYbox = Number(document.getElementById("numYbox").value);
     }
   }
+
+  if (id1 == "myScale") {
+    if (Number.isNaN(fltn)) {
+      document.getElementById("demomyScale").innerHTML = id1 + " is not a valid number value.";
+    } else {
+      document.getElementById("demomyScale").innerHTML = "";
+      let xmin = Number(document.getElementById("myScale").value);
+    }
+  }
+
   let obj1 = fetchminmax();
-  let xmin=obj1[0]; let xmax=obj1[1]; let ymin= obj1[2]; let ymax= obj1[3]; let numXbox=obj1[4]; let numYbox=obj1[5];
-  console.log("checkInput: xmin =", xmin, " xmax=", xmax, " ymin=", ymin, " ymax=", ymax," numXbox=",numXbox," numYbox=",numYbox);
-  trip=trip+1;
+  let xmin = obj1[0]; let xmax = obj1[1]; let ymin = obj1[2]; let ymax = obj1[3]; let numXbox = obj1[4]; let numYbox = obj1[5]; let myScale = obj1[6];
+  console.log("checkInput: xmin =", xmin, " xmax=", xmax, " ymin=", ymin, " ymax=", ymax, " numXbox=", numXbox, " numYbox=", numYbox, " myScale=", myScale);
+  trip = trip + 1;
 }
 
 fetchminmax = function () {
@@ -128,6 +142,7 @@ fetchminmax = function () {
   let ymax = Number(document.getElementById("ymax").value);
   let numXbox = Number(document.getElementById("numXbox").value);
   let numYbox = Number(document.getElementById("numYbox").value);
-  return [xmin,xmax,ymin,ymax,numXbox,numYbox];
+  let myScale = Number(document.getElementById("myScale").value);
+  return [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale];
 }
 

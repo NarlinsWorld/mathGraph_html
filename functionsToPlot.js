@@ -1,5 +1,22 @@
-circlemath = function (theta, r) {
-  return [r * cos(theta), r * sin(theta)];
+circlemath = function () {
+  let r=10; let theta=0; npts = 100;
+  for(let i=0;i<npts; i++){
+    theta = i*2*Math.PI/(npts+1);
+    x[i] = r * cos(theta);
+    y[i] = r * sin(theta);
+  }
+  plotxy(x,y,npts);
+}
+
+spiral = function(){
+  let r=0.17; let theta=0; npts =10000;
+  for(let i=0;i<npts; i++){
+  theta = i*20*Math.PI/(npts+1);
+  x[i] = -r*theta*sin(theta);
+  y[i]= -r*theta*cos(theta);
+}
+plotxy(x,y,npts);
+noLoop();
 }
 
 expmath = function (npts, xmin, xmax) { //assumes globalThis.x and globalThis.y
@@ -20,10 +37,12 @@ plotxy = function (x, y, npts) {
   //console.log("plotxy: xmin =", xmin, " xmax=", xmax, " ymin=", ymin, " ymax=", ymax);
   //console.log("plotxy: numXbox="+numXbox+" numYbox="+numYbox);
   for (let i = 0; i < npts; i++) {
+    if(x[i]>=xmin &&x[i]<=xmax && y[i]>=ymin && y[i]<=ymax){ //this if constrains the result to stay in the box!!!!!!!!!!!!!!!!!!
     let x1 = map(x[i], xmin, xmax, 0, width);
     let y1 = map(y[i], ymin, ymax, 0, height);
+    
     circle(x1, y1, 5);
-
+    }
   }
 }
 
