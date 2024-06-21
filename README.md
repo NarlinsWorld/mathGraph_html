@@ -58,4 +58,5 @@ file:  box.js   <= draws the box, tics, and labels.<br>
 file:  functionsToPlot.js   <= computes (x,y) and makes the mathplot.<br>
 file:  style.css <= minimal css style file<br>
 file:  jsconfig.json <= a vscode file - not really needed.<br>
+file:  New_html_inputs.md <= a guide to adding new interactive inputs to the html screen<br>
 file:  README.md <=  the file you are reading.
