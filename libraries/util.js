@@ -44,7 +44,8 @@ function checkStartup() { //this is the onload function called by html
   let numXbox = 6;
   let numYbox = 10;
   let myScale = 0.6;
-  let xAxisLabel = "Narlin's Baby";
+  let xAxisLabel = "X Axis Label";
+  let yAxisLabel = "A Label for the y-Axis"
   document.getElementById('xmin').value = xmin; //assumes html initial values are the correct type.
   document.getElementById('xmax').value = xmax;
   document.getElementById('ymin').value = ymin;
@@ -53,7 +54,8 @@ function checkStartup() { //this is the onload function called by html
   document.getElementById('numYbox').value = numYbox;
   document.getElementById('myScale').value = myScale;
   document.getElementById('xAxisLabel').value = xAxisLabel;
-  let minmax = [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale,xAxisLabel];
+  document.getElementById('yAxisLabel').value = yAxisLabel;
+  let minmax = [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale, xAxisLabel, yAxisLabel];
   return minmax;
 }
 
@@ -146,6 +148,7 @@ fetchminmax = function () {
   let numYbox = Number(document.getElementById("numYbox").value);
   let myScale = Number(document.getElementById("myScale").value);
   let xAxisLabel = document.getElementById("xAxisLabel").value;
-  return [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale,xAxisLabel];
+  let yAxisLabel = document.getElementById("yAxisLabel").value;
+  return [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale, xAxisLabel, yAxisLabel];
 }
 

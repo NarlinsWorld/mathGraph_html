@@ -35,7 +35,7 @@ class Box {
         return [x1, y1];
     }
 
-    thebox(myScale,xmin, xmax, xbox, ymin, ymax, ybox,xAxisLabel) {
+    thebox(myScale, xmin, xmax, xbox, ymin, ymax, ybox, xAxisLabel, yAxisLabel) {
         //if the scale changes, then these  lines need to be repeated with the new scale.
         this.Middle = createVector(width / 2, height / 2);
         this.topCornerX = round(this.Middle.x - myScale * width / 2);
@@ -104,14 +104,14 @@ class Box {
 
         //yAxisLabel
         textAlign(CENTER, CENTER); //remeber these get rotated
-        len = this.yAxisLabel.length;
+        len = yAxisLabel.length;
         let xloc = this.lowerLeft.x - (this.fsize / myScale) * 2;
         let yloc = (this.lowerLeft.y + this.topCornerY) / 2;
         push();
         translate(xloc, yloc); //translates x,y to 0,0
         rotate(-Math.PI / 2);
         strokeWeight(0);
-        text(this.yAxisLabel, 0, 0);
+        text(yAxisLabel, 0, 0);
         strokeWeight(3);
         pop();
 

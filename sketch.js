@@ -20,8 +20,7 @@ function setup() {
   let numYbox = minmax[5];
   let myScale = minmax[6];
   let xAxisLabel = minmax[7];
-  
-  let yAxisLabel = "Label for the y-Axis";
+  let yAxisLabel = minmax[8];
   
 
   globalThis.xzero = 0; globalThis.yzero = height; //these are in canvas units, so 0 to width and 0 to height
@@ -48,6 +47,7 @@ function draw() {
   let numYbox = obj1[5];
   let myScale = obj1[6];
   let xAxisLabel = obj1[7];
+  let yAxisLabel = obj1[8];
   background('#d4ffff');
   //translate (xmin,ymin) to the LL corner of box.
   push();
@@ -76,7 +76,7 @@ expmath(500, xmin, xmax); //subroutine fills arrays x and y and show them. Argum
 //grid.show(); //class grid in in file functionsToPlot.js
 pop();
 
-box.thebox(myScale,xmin, xmax, numXbox, ymin, ymax, numYbox, xAxisLabel);
+box.thebox(myScale,xmin, xmax, numXbox, ymin, ymax, numYbox, xAxisLabel, yAxisLabel);
 
 
   // if (trip == 2) {  //accumulated in checkInput() in file util.js  used to stop console for debugging
