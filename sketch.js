@@ -67,10 +67,10 @@ translate(obj2[0], obj2[1]);
 scale(myScale);
 scale(1, -1);
 
-spiral(); //spiral runs noLoop() and requires to start over again. reason is to save CPU from overheating.
+//spiral(); //spiral runs noLoop() and requires to start over again. reason is to save CPU from overheating.
 
 //circlemath();
-//expmath(500, xmin, xmax); //subroutine fills arrays x and y and show them. Argument is npts
+expmath(500, xmin, xmax); //subroutine fills arrays x and y and show them. Argument is npts
 //grid.show(); //class grid in in file functionsToPlot.js
 pop();
 

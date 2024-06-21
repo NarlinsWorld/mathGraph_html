@@ -16,11 +16,11 @@ spiral = function(){
   y[i]= -r*theta*cos(theta);
 }
 plotxy(x,y,npts);
-noLoop();
+noLoop();  // a restart is required. If the loop is not stopped here, the large number of data points makes the CPU fan come on.
 }
 
 expmath = function (npts, xmin, xmax) { //assumes globalThis.x and globalThis.y
-  for (let i = 0; i < npts; i++) {
+   for (let i = 0; i < npts; i++) {
     x[i] = xmin + i * (xmax - xmin) / (npts + 1);
     y[i] = x[i] * x[i];
     //console.log('xmin=',xmin,' x[i]:',x[i],'y[i]',y[i]);
