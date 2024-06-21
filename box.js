@@ -10,7 +10,7 @@ class Box {
         this.xAxisLabel = xAxisLabel;
         this.yAxisLabel = yAxisLabel;
         this.xdecimals = 1;
-        this.ydecimals = 1;
+        this.ydecimals = 2;
         this.fsize = 22;
 
         this.Middle = createVector(width / 2, height / 2);
@@ -36,7 +36,7 @@ class Box {
     }
 
     thebox(myScale, xmin, xmax, xbox, ymin, ymax, ybox, xAxisLabel, yAxisLabel) {
-        //if the scale changes, then these  lines need to be repeated with the new scale.
+        //when the scale changes, these lines need to be repeated with the new scale.
         this.Middle = createVector(width / 2, height / 2);
         this.topCornerX = round(this.Middle.x - myScale * width / 2);
         this.topCornerY = round(this.Middle.y - myScale * height / 2);

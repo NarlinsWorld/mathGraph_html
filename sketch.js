@@ -9,7 +9,7 @@ let trip = 0; //accumulated in checkInput() in file util.js - used in debugging
 let slowdown = true; //use for debug
 
 function setup() {
-  cvs = createCanvas(700, 600);
+  cvs = createCanvas(700, 700);
   cvs.parent("cvsdiv");
   let minmax = checkStartup(); //fills the array with the onscreen startup values. Only OK in setup
   let xmin = minmax[0];
@@ -60,9 +60,9 @@ function draw() {
 //  console.log(box.canvasUnits(0, 0));
   obj2 = box.canvasUnits(xmin,ymin,xmin,xmax,ymin,ymax); 
 
-fill('red');
-circle(obj2[0], obj2[1], 10);
-noFill;
+// fill('red');
+// circle(obj2[0], obj2[1], 10);
+// noFill;
 
 
 translate(obj2[0], obj2[1]);
@@ -71,8 +71,8 @@ scale(1, -1);
 
 //spiral(); //spiral runs noLoop() and requires to start over again. reason is to save CPU from overheating.
 
-//circlemath();
-expmath(500, xmin, xmax); //subroutine fills arrays x and y and show them. Argument is npts
+circlemath();
+//expmath(500, xmin, xmax); //subroutine fills arrays x and y and show them. Argument is npts
 //grid.show(); //class grid in in file functionsToPlot.js
 pop();
 

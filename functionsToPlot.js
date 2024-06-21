@@ -1,7 +1,7 @@
 circlemath = function () {
   let r=10; let theta=0; npts = 100;
   for(let i=0;i<npts; i++){
-    theta = i*2*Math.PI/(npts+1);
+    theta = i*2*Math.PI/(npts);
     x[i] = r * cos(theta);
     y[i] = r * sin(theta);
   }
