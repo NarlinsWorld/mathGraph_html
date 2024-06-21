@@ -2,7 +2,10 @@
 
 # Quick View of x, y data
 
-
+Purpose: To create a "nicely formatted" graph for use in powerpoint or online presentations.  By altering the parameters,  
+xmin, xmax, xbox  
+ymin, ymax, ybox  
+we can get the tics and number values to be pretty much exactly as desired.
 
 The file runs through a browser opening the index.html and having all
 files in the same directory, for example Directory = **'mathGraph_html'**.

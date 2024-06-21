@@ -35,7 +35,7 @@ class Box {
         return [x1, y1];
     }
 
-    thebox(myScale,xmin, xmax, xbox, ymin, ymax, ybox) {
+    thebox(myScale,xmin, xmax, xbox, ymin, ymax, ybox,xAxisLabel) {
         //if the scale changes, then these  lines need to be repeated with the new scale.
         this.Middle = createVector(width / 2, height / 2);
         this.topCornerX = round(this.Middle.x - myScale * width / 2);
@@ -74,9 +74,9 @@ class Box {
         } //end for
 
         //xAxisLabel, centered between lowerLeft.x and rt.x
-        let len = this.xAxisLabel.length;
+        let len = xAxisLabel.length;
         strokeWeight(0);
-        text(this.xAxisLabel, (this.lowerLeft.x + this.rt.x) / 2, this.lowerLeft.y + .06 * height);
+        text(xAxisLabel, (this.lowerLeft.x + this.rt.x) / 2, this.lowerLeft.y + .06 * height);
         strokeWeight(3);
 
         //draw the y-axis tic marks
