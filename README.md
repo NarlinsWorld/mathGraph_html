@@ -2,11 +2,15 @@
 
 # Quick View of x, y data
 
+
+
 The file runs through a browser opening the index.html and having all
 files in the same directory, for example Directory = **'mathGraph_html'**.
 The directory 'libraries' must also be in the directory **'mathGraph_html'**<br><br>
 
-A user must write in javascript their particular xy data.
+<img src="SampleRun.png">
+
+A user must write in javascript, code for their particular xy data.
 It must be placed as a function into the file **'functionsToPlot.js'**<br>
 For example, a function to graph $y=x^2$ can be written as follows.
 
