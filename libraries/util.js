@@ -44,6 +44,7 @@ function checkStartup() { //this is the onload function called by html
   let numXbox = 6;
   let numYbox = 10;
   let myScale = 0.6;
+  let xdecimals = 1;
   let xAxisLabel = "X Axis Label";
   let yAxisLabel = "A Label for the y-Axis"
   document.getElementById('xmin').value = xmin; //assumes html initial values are the correct type.
@@ -53,9 +54,10 @@ function checkStartup() { //this is the onload function called by html
   document.getElementById('numXbox').value = numXbox;
   document.getElementById('numYbox').value = numYbox;
   document.getElementById('myScale').value = myScale;
+  document.getElementById('xdecimals').value = xdecimals;
   document.getElementById('xAxisLabel').value = xAxisLabel;
   document.getElementById('yAxisLabel').value = yAxisLabel;
-  let minmax = [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale, xAxisLabel, yAxisLabel];
+  let minmax = [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale, xdecimals, xAxisLabel, yAxisLabel];
   return minmax;
 }
 
@@ -133,22 +135,33 @@ function checkInput(id1) {
     }
   }
 
+  if (id1 == "xdecimals") {
+    if (Number.isNaN(fltn)) {
+      document.getElementById("demoxdecimals").innerHTML = id1 + " is not a valid number value.";
+    } else {
+      document.getElementById("demoxdecimals").innerHTML = "";
+      let xmin = Number(document.getElementById("xdecimals").value);
+    }
+  }
+
   let obj1 = fetchminmax();
   let xmin = obj1[0]; let xmax = obj1[1]; let ymin = obj1[2]; let ymax = obj1[3]; let numXbox = obj1[4]; let numYbox = obj1[5]; let myScale = obj1[6];
-  console.log("checkInput: xmin =", xmin, " xmax=", xmax, " ymin=", ymin, " ymax=", ymax, " numXbox=", numXbox, " numYbox=", numYbox, " myScale=", myScale);
+  let xdecimals = obj1[7];
+  console.log("checkInput: xmin =", xmin, " xmax=", xmax, " ymin=", ymin, " ymax=", ymax, " numXbox=", numXbox, " numYbox=", numYbox, " myScale=", myScale, " xdecimals=",xdecimals);
   trip = trip + 1;
 }
 
 fetchminmax = function () {
-  let xmin = Number(document.getElementById("xmin").value);
-  let xmax = Number(document.getElementById("xmax").value);
-  let ymin = Number(document.getElementById("ymin").value);
-  let ymax = Number(document.getElementById("ymax").value);
-  let numXbox = Number(document.getElementById("numXbox").value);
-  let numYbox = Number(document.getElementById("numYbox").value);
-  let myScale = Number(document.getElementById("myScale").value);
+  let xmin = Number(document.getElementById("xmin").value); //[0]
+  let xmax = Number(document.getElementById("xmax").value); //[1]
+  let ymin = Number(document.getElementById("ymin").value); //[2]
+  let ymax = Number(document.getElementById("ymax").value); //[3]
+  let numXbox = Number(document.getElementById("numXbox").value); //[4]
+  let numYbox = Number(document.getElementById("numYbox").value); //[5]
+  let myScale = Number(document.getElementById("myScale").value); //[6]
+  let xdecimals = Number(document.getElementById("xdecimals").value); //[7]
   let xAxisLabel = document.getElementById("xAxisLabel").value;
   let yAxisLabel = document.getElementById("yAxisLabel").value;
-  return [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale, xAxisLabel, yAxisLabel];
+  return [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale, xdecimals, xAxisLabel, yAxisLabel];
 }
 

@@ -19,16 +19,17 @@ function setup() {
   let numXbox = minmax[4];
   let numYbox = minmax[5];
   let myScale = minmax[6];
-  let xAxisLabel = minmax[7];
-  let yAxisLabel = minmax[8];
-  
+  let xdecimals = minmax[7]
+  let xAxisLabel = minmax[8];
+  let yAxisLabel = minmax[9];
 
-  globalThis.xzero = 0; globalThis.yzero = height; //these are in canvas units, so 0 to width and 0 to height
+
+  //globalThis.xzero = 0; globalThis.yzero = height; //these are in canvas units, so 0 to width and 0 to height
   //create some data
   globalThis.x = []; //globals
   globalThis.y = [];
   grid = new Grid(xmin, xmax, ymin, ymax, numXbox, numYbox);
-  box = new Box(myScale, xmin, xmax, numXbox, ymin, ymax, numYbox,xAxisLabel,yAxisLabel);
+  box = new Box(myScale, xmin, xmax, numXbox, ymin, ymax, numYbox, xdecimals, xAxisLabel, yAxisLabel);
   // dxmax = max(x); //minmax for the dataset. Globals
   // dxmin = min(x);
   // dymax = max(y);
@@ -46,37 +47,40 @@ function draw() {
   let numXbox = obj1[4];
   let numYbox = obj1[5];
   let myScale = obj1[6];
-  let xAxisLabel = obj1[7];
-  let yAxisLabel = obj1[8];
+  let xdecimals = obj1[7];
+  let xAxisLabel = obj1[8];
+  let yAxisLabel = obj1[9];
   background('#d4ffff');
   //translate (xmin,ymin) to the LL corner of box.
   push();
   let obj2;
-  /*this finds a point exactly correct for scale(1,1)
+  /*obj2 finds a point exactly correct for scale(1,1)
   to do the graph translation. that is, we will translate(obj2[0],obj2[1])
   It will NOT get an aspect ratio of 1.
   It will assure that the plot is using the same units as xmin,xmax and ymin,ymax
   */
-//  console.log(box.canvasUnits(0, 0));
-  obj2 = box.canvasUnits(xmin,ymin,xmin,xmax,ymin,ymax); 
+  //  console.log(box.canvasUnits(0, 0));
+  obj2 = box.canvasUnits(xmin, ymin, xmin, xmax, ymin, ymax);
 
-// fill('red');
-// circle(obj2[0], obj2[1], 10);
-// noFill;
+  // fill('red');
+  // circle(obj2[0], obj2[1], 10);  //puts a red blob at (xmin,ymin)
+  // noFill;
 
 
-translate(obj2[0], obj2[1]);
-scale(myScale);
-scale(1, -1);
+  translate(obj2[0], obj2[1]);
+  scale(myScale);
+  scale(1, -1);
 
-//spiral(); //spiral runs noLoop() and requires to start over again. reason is to save CPU from overheating.
 
-circlemath();
-//expmath(500, xmin, xmax); //subroutine fills arrays x and y and show them. Argument is npts
-//grid.show(); //class grid in in file functionsToPlot.js
-pop();
+  //In this section, call your math routine. It can be written in 'functionsToPlot.js'
+  //spiral(); //spiral runs noLoop() and requires to start over again. reason is to save CPU from overheating.
+  circlemath(); //just draws a circle 
+  //expmath(500, xmin, xmax); //subroutine fills arrays x and y and show them. Arguments are (npts,xmin,xmax).
+  //grid.show(); //class grid in in file functionsToPlot.js
+  pop();
 
-box.thebox(myScale,xmin, xmax, numXbox, ymin, ymax, numYbox, xAxisLabel, yAxisLabel);
+  //box.thebox() puts everything on screen except for your math function.
+  box.thebox(myScale, xmin, xmax, numXbox, ymin, ymax, numYbox, xdecimals, xAxisLabel, yAxisLabel);
 
 
   // if (trip == 2) {  //accumulated in checkInput() in file util.js  used to stop console for debugging

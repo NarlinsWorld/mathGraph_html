@@ -1,5 +1,5 @@
 class Box {
-    constructor(myScale, xmin, xmax, xbox, ymin, ymax, ybox, xAxisLabel, yAxisLabel) {
+    constructor(myScale, xmin, xmax, xbox, ymin, ymax, ybox, xdecimals, xAxisLabel, yAxisLabel) {
         this.myScale = myScale;
         this.xmin = xmin;
         this.xbox = xbox;
@@ -9,7 +9,7 @@ class Box {
         this.ymax = ymax;
         this.xAxisLabel = xAxisLabel;
         this.yAxisLabel = yAxisLabel;
-        this.xdecimals = 1;
+        this.xdecimals = xdecimals;
         this.ydecimals = 2;
         this.fsize = 22;
 
@@ -29,13 +29,13 @@ class Box {
     }
 
     canvasUnits(x, y, xmin, xmax, ymin, ymax) {
-        //we want canvas units from mathUnits.
+        //given any point (x,y) in math units, this returns the canvas units for that point.
         let x1 = map(x, xmin, xmax, this.lowerLeft.x, this.rt.x);
         let y1 = map(y, ymin, ymax, this.lowerLeft.y, this.topCornerY);
         return [x1, y1];
     }
 
-    thebox(myScale, xmin, xmax, xbox, ymin, ymax, ybox, xAxisLabel, yAxisLabel) {
+    thebox(myScale, xmin, xmax, xbox, ymin, ymax, ybox, xdecimals, xAxisLabel, yAxisLabel) {
         //when the scale changes, these lines need to be repeated with the new scale.
         this.Middle = createVector(width / 2, height / 2);
         this.topCornerX = round(this.Middle.x - myScale * width / 2);
@@ -65,8 +65,8 @@ class Box {
             strokeWeight(3); // Line weight
             line(tix, this.lowerLeft.y, tix, this.lowerLeft.y - 25 * myScale); // the tic line            
             let xn = xmin + i * (xmax - xmin) / xbox; //calc the tic number
-            if (this.xdecimals != 0) {
-                xn = xn.toFixed(this.xdecimals);
+            if (xdecimals != 0) {
+                xn = xn.toFixed(xdecimals);
             } //does user want fixed decimal
             let xnumber = str(xn); // the string to print   
             strokeWeight(0); //text weight - we change size, not weight
@@ -90,7 +90,7 @@ class Box {
             strokeWeight(3);
             line(this.lowerLeft.x, tix, this.lowerLeft.x + 25 * myScale, tix); //draw the tic
             let yn = ymin + i * (ymax - ymin) / ybox //calc the tic value
-            if (this.xdecimals != 0) {
+            if (xdecimals != 0) {
                 yn = yn.toFixed(this.ydecimals);
             } //if user wanted fixed decimals
             let ynumber = str(yn); //the string to print

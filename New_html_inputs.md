@@ -9,7 +9,7 @@ This is some code information about how to modify the program to get new html in
     <input type="text" id="xAxisLabel" name="xAxisLabel1" size="30" onchange="checkInput('xAxisLabel')">
 ```
 
-2. In the function checkStartup() we need to add the initialization value.  This is done in 3 places in that routine. The first time initializes the variable. The second time sets its value in html.  The third time includes in the array name minmax, which allows it to communicate easily with p5.js.
+2. In the function checkStartup() (in the library file util.js) we need to add the initialization value.  This is done in 3 places in that routine. The first time initializes the variable. The second time sets its value in html.  The third time includes in the array name minmax, which allows it to communicate easily with p5.js.
 
 ```html
 function checkStartup() { //this is the onload function called by html
@@ -34,7 +34,7 @@ function checkStartup() { //this is the onload function called by html
 }
 ```html
 
-3. In the function setup() located in file sketch.js, we need to add the xAxisLabel line which closes the loop for p5.js communicating with html. I have shown the first few lines of seupt, including the one that we have added to initialize xAxisLabel.
+3. In the function setup() located in file sketch.js, we need to add the xAxisLabel line which closes the loop for p5.js communicating with html. I have shown the first few lines of setup, including the one that we have added to initialize xAxisLabel.
 
 ```html
 function setup() {
