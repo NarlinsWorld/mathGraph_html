@@ -1,5 +1,5 @@
 class Box {
-    constructor(myScale, xmin, xmax, xbox, ymin, ymax, ybox, xdecimals, xAxisLabel, yAxisLabel) {
+    constructor(myScale, xmin, xmax, xbox, ymin, ymax, ybox, xdecimals, ydecimals, xAxisLabel, yAxisLabel) {
         this.myScale = myScale;
         this.xmin = xmin;
         this.xbox = xbox;
@@ -10,7 +10,7 @@ class Box {
         this.xAxisLabel = xAxisLabel;
         this.yAxisLabel = yAxisLabel;
         this.xdecimals = xdecimals;
-        this.ydecimals = 2;
+        this.ydecimals = ydecimals;
         this.fsize = 22;
 
         this.Middle = createVector(width / 2, height / 2);
@@ -35,7 +35,7 @@ class Box {
         return [x1, y1];
     }
 
-    thebox(myScale, xmin, xmax, xbox, ymin, ymax, ybox, xdecimals, xAxisLabel, yAxisLabel) {
+    thebox(myScale, xmin, xmax, xbox, ymin, ymax, ybox, xdecimals, ydecimals, xAxisLabel, yAxisLabel) {
         //when the scale changes, these lines need to be repeated with the new scale.
         this.Middle = createVector(width / 2, height / 2);
         this.topCornerX = round(this.Middle.x - myScale * width / 2);
@@ -90,8 +90,8 @@ class Box {
             strokeWeight(3);
             line(this.lowerLeft.x, tix, this.lowerLeft.x + 25 * myScale, tix); //draw the tic
             let yn = ymin + i * (ymax - ymin) / ybox //calc the tic value
-            if (xdecimals != 0) {
-                yn = yn.toFixed(this.ydecimals);
+            if (ydecimals != 0) {
+                yn = yn.toFixed(ydecimals);
             } //if user wanted fixed decimals
             let ynumber = str(yn); //the string to print
             strokeWeight(0);
