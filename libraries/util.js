@@ -45,6 +45,7 @@ function checkStartup() { //this is the onload function called by html
   let numYbox = 10;
   let myScale = 0.6;
   let xdecimals = 1;
+  let ydecimals = 2;
   let xAxisLabel = "X Axis Label";
   let yAxisLabel = "A Label for the y-Axis"
   document.getElementById('xmin').value = xmin; //assumes html initial values are the correct type.
@@ -55,9 +56,10 @@ function checkStartup() { //this is the onload function called by html
   document.getElementById('numYbox').value = numYbox;
   document.getElementById('myScale').value = myScale;
   document.getElementById('xdecimals').value = xdecimals;
+  document.getElementById('ydecimals').value = ydecimals;
   document.getElementById('xAxisLabel').value = xAxisLabel;
   document.getElementById('yAxisLabel').value = yAxisLabel;
-  let minmax = [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale, xdecimals, xAxisLabel, yAxisLabel];
+  let minmax = [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale, xdecimals, ydecimals, xAxisLabel, yAxisLabel];
   return minmax;
 }
 
@@ -74,7 +76,8 @@ function checkInput(id1) {
 
   if (id1 == "xmin") {
     if (Number.isNaN(fltn)) {
-      document.getElementById("demoxmin").innerHTML = id1 + " is not a valid number value.";
+      //document.getElementById("demoxmin").innerHTML = id1 + " is not a valid number value.";
+      alert(id1+" is not a valid number");
     } else {
       document.getElementById("demoxmin").innerHTML = "";
       let xmin = Number(document.getElementById("xmin").value);
@@ -83,7 +86,8 @@ function checkInput(id1) {
 
   if (id1 == "xmax") {
     if (Number.isNaN(fltn)) {
-      document.getElementById("demoxmax").innerHTML = id1 + " is not a valid number value.";
+      //document.getElementById("demoxmax").innerHTML = id1 + " is not a valid number value.";
+      alert(id1+" is not a valid number");
     } else {
       document.getElementById("demoxmax").innerHTML = "";
       let xmax = Number(document.getElementById("xmax").value);
@@ -92,7 +96,8 @@ function checkInput(id1) {
 
   if (id1 == "ymin") {
     if (Number.isNaN(fltn)) {
-      document.getElementById("demoymin").innerHTML = id1 + " is not a valid number value.";
+      //document.getElementById("demoymin").innerHTML = id1 + " is not a valid number value.";
+      alert(id1+" is not a valid number");
     } else {
       document.getElementById("demoymin").innerHTML = "";
       let ymin = Number(document.getElementById("ymin").value);
@@ -101,7 +106,8 @@ function checkInput(id1) {
 
   if (id1 == "ymax") {
     if (Number.isNaN(fltn)) {
-      document.getElementById("demoymax").innerHTML = id1 + " is not a valid number value.";
+      //document.getElementById("demoymax").innerHTML = id1 + " is not a valid number value.";
+      alert(id1+" is not a valid number");
     } else {
       document.getElementById("demoymax").innerHTML = "";
       let ymax = Number(document.getElementById("ymax").value);
@@ -110,7 +116,8 @@ function checkInput(id1) {
 
   if (id1 == "numXbox") {
     if (Number.isNaN(fltn)) {
-      document.getElementById("demonumXbox").innerHTML = id1 + " is not a valid number value.";
+      //document.getElementById("demonumXbox").innerHTML = id1 + " is not a valid number value.";
+      alert(id1+" is not a valid number");
     } else {
       document.getElementById("demonumXbox").innerHTML = "";
       let numXbox = Number(document.getElementById("numXbox").value);
@@ -119,7 +126,8 @@ function checkInput(id1) {
 
   if (id1 == "numYbox") {
     if (Number.isNaN(fltn)) {
-      document.getElementById("demonumYbox").innerHTML = id1 + " is not a valid number value.";
+      //document.getElementById("demonumYbox").innerHTML = id1 + " is not a valid number value.";
+      alert(id1+" is not a valid number");
     } else {
       document.getElementById("demonumYbox").innerHTML = "";
       let numYbox = Number(document.getElementById("numYbox").value);
@@ -128,27 +136,40 @@ function checkInput(id1) {
 
   if (id1 == "myScale") {
     if (Number.isNaN(fltn)) {
-      document.getElementById("demomyScale").innerHTML = id1 + " is not a valid number value.";
+      //document.getElementById("demomyScale").innerHTML = id1 + " is not a valid number value.";
+      alert(id1+" is not a valid number");
     } else {
       document.getElementById("demomyScale").innerHTML = "";
-      let xmin = Number(document.getElementById("myScale").value);
+      let myScale = Number(document.getElementById("myScale").value);
     }
   }
 
   if (id1 == "xdecimals") {
     if (Number.isNaN(fltn)) {
-      document.getElementById("demoxdecimals").innerHTML = id1 + " is not a valid number value.";
+      //document.getElementById("demoxdecimals").innerHTML = id1 + " is not a valid number value.";
+      alert(id1+" is not a valid number");
     } else {
       document.getElementById("demoxdecimals").innerHTML = "";
-      let xmin = Number(document.getElementById("xdecimals").value);
+      let xdecimals = Number(document.getElementById("xdecimals").value);
+    }
+  }
+
+  if (id1 == "ydecimals") {
+    if (Number.isNaN(fltn)) {
+      //document.getElementById("demoydecimals").innerHTML = id1 + " is not a valid number value.";
+      alert(id1+" is not a valid number");
+    } else {
+      document.getElementById("demoydecimals").innerHTML = "";
+      let ydecimals = Number(document.getElementById("ydecimals").value);
     }
   }
 
   let obj1 = fetchminmax();
   let xmin = obj1[0]; let xmax = obj1[1]; let ymin = obj1[2]; let ymax = obj1[3]; let numXbox = obj1[4]; let numYbox = obj1[5]; let myScale = obj1[6];
-  let xdecimals = obj1[7];
-  console.log("checkInput: xmin =", xmin, " xmax=", xmax, " ymin=", ymin, " ymax=", ymax, " numXbox=", numXbox, " numYbox=", numYbox, " myScale=", myScale, " xdecimals=",xdecimals);
-  trip = trip + 1;
+  let xdecimals = obj1[7]; let ydecimals = obj1[8];
+  console.log("checkInput: xmin =", xmin, " xmax=", xmax, " ymin=", ymin, " ymax=", ymax,
+    " numXbox=", numXbox, " numYbox=", numYbox, " myScale=", myScale, " xdecimals=", xdecimals, "ydecimals=", ydecimals);
+  trip = trip + 1; //used to count changes in the inputs
 }
 
 fetchminmax = function () {
@@ -160,8 +181,10 @@ fetchminmax = function () {
   let numYbox = Number(document.getElementById("numYbox").value); //[5]
   let myScale = Number(document.getElementById("myScale").value); //[6]
   let xdecimals = Number(document.getElementById("xdecimals").value); //[7]
+  let ydecimals = Number(document.getElementById("ydecimals").value); //[8]
   let xAxisLabel = document.getElementById("xAxisLabel").value;
   let yAxisLabel = document.getElementById("yAxisLabel").value;
-  return [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale, xdecimals, xAxisLabel, yAxisLabel];
+  trip = trip+1;
+  return [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale, xdecimals, ydecimals, xAxisLabel, yAxisLabel];
 }
 

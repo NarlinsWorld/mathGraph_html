@@ -5,7 +5,7 @@ Is it worth it?
 
 
 
-let trip = 0; //accumulated in checkInput() in file util.js - used in debugging
+let trip = 0; //accumulated in checkInput() in file util.js - used to count html input changes
 let slowdown = true; //use for debug
 
 function setup() {
@@ -20,8 +20,9 @@ function setup() {
   let numYbox = minmax[5];
   let myScale = minmax[6];
   let xdecimals = minmax[7]
-  let xAxisLabel = minmax[8];
-  let yAxisLabel = minmax[9];
+  let ydecimals = minmax[8]
+  let xAxisLabel = minmax[9];
+  let yAxisLabel = minmax[10];
 
 
   //globalThis.xzero = 0; globalThis.yzero = height; //these are in canvas units, so 0 to width and 0 to height
@@ -29,7 +30,7 @@ function setup() {
   globalThis.x = []; //globals
   globalThis.y = [];
   grid = new Grid(xmin, xmax, ymin, ymax, numXbox, numYbox);
-  box = new Box(myScale, xmin, xmax, numXbox, ymin, ymax, numYbox, xdecimals, xAxisLabel, yAxisLabel);
+  box = new Box(myScale, xmin, xmax, numXbox, ymin, ymax, numYbox, xdecimals, ydecimals, xAxisLabel, yAxisLabel);
   // dxmax = max(x); //minmax for the dataset. Globals
   // dxmin = min(x);
   // dymax = max(y);
@@ -48,8 +49,9 @@ function draw() {
   let numYbox = obj1[5];
   let myScale = obj1[6];
   let xdecimals = obj1[7];
-  let xAxisLabel = obj1[8];
-  let yAxisLabel = obj1[9];
+  let ydecimals = obj1[8]
+  let xAxisLabel = obj1[9];
+  let yAxisLabel = obj1[10];
   background('#d4ffff');
   //translate (xmin,ymin) to the LL corner of box.
   push();
@@ -71,19 +73,23 @@ function draw() {
   scale(myScale);
   scale(1, -1);
 
-
+  
   //In this section, call your math routine. It can be written in 'functionsToPlot.js'
   //spiral(); //spiral runs noLoop() and requires to start over again. reason is to save CPU from overheating.
-  circlemath(); //just draws a circle 
-  //expmath(500, xmin, xmax); //subroutine fills arrays x and y and show them. Arguments are (npts,xmin,xmax).
-  //grid.show(); //class grid in in file functionsToPlot.js
+  //circlemath(); //just draws a circle 
+  expmath(500, xmin, xmax); //subroutine fills arrays x and y and show them. Arguments are (npts,xmin,xmax).
+
+ if(document.getElementById('showgrid').checked){;
+  //console.log(document.getElementById('showgrid').value);
+  grid.show(); //class grid in in file functionsToPlot.js
+ }
   pop();
 
   //box.thebox() puts everything on screen except for your math function.
-  box.thebox(myScale, xmin, xmax, numXbox, ymin, ymax, numYbox, xdecimals, xAxisLabel, yAxisLabel);
+  box.thebox(myScale, xmin, xmax, numXbox, ymin, ymax, numYbox, xdecimals, ydecimals, xAxisLabel, yAxisLabel);
 
 
-  // if (trip == 2) {  //accumulated in checkInput() in file util.js  used to stop console for debugging
+  // if (trip == 2) {  //accumulated in checkInput() in file util.js  can be used to stop console for debugging
   //   console.log('trip =',trip)
   //noLoop();
   // }

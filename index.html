@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- // -->
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
 </head>
 
 <body onload="checkStartup('xmax','xmax','ymin','ymax')"> <!--prefill my labels -->
-  
+
   <div id="container">
 
     <h4></h4> <!-- ads spacing above the canvas -->
@@ -20,29 +21,37 @@
     <h4></h4> <!-- adds spacing under the canvas -->
 
     <div id="text1">
-    <label for="xmin1">xmin:</label>
-    <input type="text" id="xmin" name="xmin1" size="2" onchange="checkInput('xmin')">
-    <label for="xmax1">xmax:</label>
-    <input type="text" id="xmax" name="xmax1" size="2"  onchange="checkInput('xmax')">
-    <label for="ymin1">ymin:</label>
-    <input type="text" id="ymin" name="ymin1" size="3" onchange="checkInput('ymin')">
-    <label for="xmax1">ymax:</label>
-    <input type="text" id="ymax" name="ymax1" size="3" onchange="checkInput('ymax')">
-    <br><label for="numXbox1">xBox:</label>
-    <input type="text" id="numXbox" name="numXbox1" size="2" onchange="checkInput('numXbox')">
-    <label for="numYbox1">yBox:</label>
-    <input type="text" id="numYbox" name="numYbox1" size="2" onchange="checkInput('numYbox')">
-    <label for="myScale1">Scale:</label>
-    <input type="text" id="myScale" name="myScale1" size="2" onchange="checkInput('myScale')">
-    <label for="xdecimals1">xdecimals:</label>
-    <input type="text" id="xdecimals" name="xdecimals1" size="2" onchange="checkInput('xdecimals')">
-    <br><label for="xAxisLabel1">X Axis Label:</label>
-    <input type="text" id="xAxisLabel" name="xAxisLabel1" size="30" onchange="checkInput('xAxisLabel')">
-    <br><label for="yAxisLabel1">Y Axis Label:</label>
-    <input type="text" id="yAxisLabel" name="yAxisLabel1" size="30" onchange="checkInput('yAxisLabel')">
-      </div> <!-- end div text 1-->
+      <label for="xmin1">xmin:</label>
+      <input type="text" id="xmin" name="xmin1" size="2" onchange="checkInput('xmin')">
+      <label for="xmax1">xmax:</label>
+      <input type="text" id="xmax" name="xmax1" size="2" onchange="checkInput('xmax')">
+      <label for="ymin1">ymin:</label>
+      <input type="text" id="ymin" name="ymin1" size="3" onchange="checkInput('ymin')">
+      <label for="xmax1">ymax:</label>
+      <input type="text" id="ymax" name="ymax1" size="3" onchange="checkInput('ymax')">
+      <label for="showgrid"> Show Grid </label>
+      <input type="checkbox" id="showgrid" name="showgrid" value="no">
+      <br><label for="numXbox1">xBox:</label>
+      <input type="text" id="numXbox" name="numXbox1" size="2" onchange="checkInput('numXbox')">
+      <label for="numYbox1">yBox:</label>
+      <input type="text" id="numYbox" name="numYbox1" size="2" onchange="checkInput('numYbox')">
+      <label for="myScale1">Scale:</label>
+      <input type="text" id="myScale" name="myScale1" size="2" onchange="checkInput('myScale')">
+      <label for="xdecimals1">xdecimals:</label>
+      <input type="text" id="xdecimals" name="xdecimals1" size="2" onchange="checkInput('xdecimals')">
+      <label for="ydecimals1">ydecimals:</label>
+      <input type="text" id="ydecimals" name="ydecimals1" size="2" onchange="checkInput('ydecimals')">
+      
+      
+      <br><label for="xAxisLabel1">X Axis Label:</label>
+      <input type="text" id="xAxisLabel" name="xAxisLabel1" size="30" onchange="checkInput('xAxisLabel')">
+      <br><label for="yAxisLabel1">Y Axis Label:</label>
+      <input type="text" id="yAxisLabel" name="yAxisLabel1" size="30" onchange="checkInput('yAxisLabel')">
+    </div> <!-- end div text 1-->
 
 
+    <!-- You can write into these locations using syntax from javascript such as
+    document.getElementById("demoxdecimals").innerHTML = id1 + " is not a valid number value."; -->
     <p id="demo"></p>
     <p id="demoxmin"></p>
     <p id="demoxmax"></p>
@@ -51,12 +60,14 @@
     <p id="demonumXbox"></p>
     <p id="demonumYbox"></p>
     <p id="demomyScale"></p>
+    <p id="demoxdecimals"></p>
+    <p id="demoydecimals"></p>
   </div> <!-- end of container div-->
 
   <script src="box.js"></script>
   <script src="functionsToPlot.js"></script>
   <script src="sketch.js"></script>
-  <script src = "libraries/util.js"> </script>
+  <script src="libraries/util.js"> </script>
 </body>
 
 </html>

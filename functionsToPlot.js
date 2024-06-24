@@ -1,29 +1,78 @@
 circlemath = function () {
-  let r=10; let theta=0; npts = 100;
-  for(let i=0;i<npts; i++){
-    theta = i*2*Math.PI/(npts);
+  //You can set the plot default parameters here, but doing so prevents changing them on screen
+  //unless you use the trip variable, which is incremented at the end of fetchminmax() in library/util.js;
+  //These definitions override the presets in function checkStartup() and are nice since they accompany your arithmetic.
+
+  if (trip < 2) {
+    document.getElementById('ymin').value = -12;
+    document.getElementById('ymax').value = 12;
+    document.getElementById('xmin').value = -12;
+    document.getElementById('xmax').value = 12;
+    document.getElementById('numXbox').value = 6;
+    document.getElementById('numYbox').value = 12;
+    document.getElementById('myScale').value = .6;
+    document.getElementById('xdecimals').value = 1;
+    document.getElementById('ydecimals').value = 1;
+    document.getElementById('xAxisLabel').value = 'My X Axis Label';
+    document.getElementById('yAxisLabel').value = 'My Y Axis Label';
+  }
+
+  let r = 10; let theta = 0; npts = 100;
+  for (let i = 0; i < npts; i++) {
+    theta = i * 2 * Math.PI / (npts);
     x[i] = r * cos(theta);
     y[i] = r * sin(theta);
   }
-  plotxy(x,y,npts);
+  plotxy(x, y, npts);
 }
 
-spiral = function(){
-  let r=0.17; let theta=0; npts =10000;
-  for(let i=0;i<npts; i++){
-  theta = i*20*Math.PI/(npts+1);
-  x[i] = -r*theta*sin(theta);
-  y[i]= -r*theta*cos(theta);
-}
-plotxy(x,y,npts);
-noLoop();  // a restart is required. If the loop is not stopped here, the large number of data points makes the CPU fan come on.
+// If called, we draw a spiral.
+
+spiral = function () {
+  if (trip < 2) {
+    document.getElementById('ymin').value = -12;
+    document.getElementById('ymax').value = 12;
+    document.getElementById('xmin').value = -12;
+    document.getElementById('xmax').value = 12;
+    document.getElementById('numXbox').value = 6;
+    document.getElementById('numYbox').value = 10;
+    document.getElementById('myScale').value = .6;
+    document.getElementById('xdecimals').value = 1;
+    document.getElementById('ydecimals').value = 1;
+    document.getElementById('xAxisLabel').value = 'My X Axis Label';
+    document.getElementById('yAxisLabel').value = 'My Y Axis Label';
+  }
+
+  let r = 0.17; let theta = 0; npts = 10000;
+  for (let i = 0; i < npts; i++) {
+    theta = i * 20 * Math.PI / (npts + 1);
+    x[i] = -r * theta * sin(theta);
+    y[i] = -r * theta * cos(theta);
+  }
+  plotxy(x, y, npts);
+  //noLoop();  // The large number of data points makes the CPU fan come on.
 }
 
-expmath = function (npts, xmin, xmax) { //assumes globalThis.x and globalThis.y
-   for (let i = 0; i < npts; i++) {
+
+//If Called we draw y=x^2
+expmath = function (npts, xmin, xmax) {
+  
+  if (trip < 2) {
+    document.getElementById('ymin').value = 0;
+    document.getElementById('ymax').value = 100;
+    document.getElementById('xmin').value = -12;
+    document.getElementById('xmax').value = 12;
+    document.getElementById('numXbox').value = 6;
+    document.getElementById('numYbox').value = 10;
+    document.getElementById('myScale').value = .6;
+    document.getElementById('xdecimals').value = 0;
+    document.getElementById('ydecimals').value = 0;
+    document.getElementById('xAxisLabel').value = 'x-Axis';
+    document.getElementById('yAxisLabel').value = 'y-Axis';
+  }
+  for (let i = 0; i < npts; i++) {
     x[i] = xmin + i * (xmax - xmin) / (npts + 1);
     y[i] = x[i] * x[i];
-    //console.log('xmin=',xmin,' x[i]:',x[i],'y[i]',y[i]);
   }
   plotxy(x, y, npts);
 }
@@ -37,11 +86,11 @@ plotxy = function (x, y, npts) {
   //console.log("plotxy: xmin =", xmin, " xmax=", xmax, " ymin=", ymin, " ymax=", ymax);
   //console.log("plotxy: numXbox="+numXbox+" numYbox="+numYbox);
   for (let i = 0; i < npts; i++) {
-    if(x[i]>=xmin &&x[i]<=xmax && y[i]>=ymin && y[i]<=ymax){ //this if constrains the result to stay in the box!!!!!!!!!!!!!!!!!!
-    let x1 = map(x[i], xmin, xmax, 0, width);
-    let y1 = map(y[i], ymin, ymax, 0, height);
-    
-    circle(x1, y1, 5);
+    if (x[i] >= xmin && x[i] <= xmax && y[i] >= ymin && y[i] <= ymax) { //this if constrains the result to stay in the box!!!!!!!!!!!!!!!!!!
+      let x1 = map(x[i], xmin, xmax, 0, width);
+      let y1 = map(y[i], ymin, ymax, 0, height);
+
+      circle(x1, y1, 5);
     }
   }
 }
