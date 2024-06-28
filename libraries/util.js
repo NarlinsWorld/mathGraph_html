@@ -169,7 +169,7 @@ function checkInput(id1) {
   let xdecimals = obj1[7]; let ydecimals = obj1[8];
   console.log("checkInput: xmin =", xmin, " xmax=", xmax, " ymin=", ymin, " ymax=", ymax,
     " numXbox=", numXbox, " numYbox=", numYbox, " myScale=", myScale, " xdecimals=", xdecimals, "ydecimals=", ydecimals);
-  trip = trip + 1; //used to count changes in the inputs
+  
 }
 
 fetchminmax = function () {
@@ -185,6 +185,7 @@ fetchminmax = function () {
   let xAxisLabel = document.getElementById("xAxisLabel").value;
   let yAxisLabel = document.getElementById("yAxisLabel").value;
   trip = trip+1;
+  
   return [xmin, xmax, ymin, ymax, numXbox, numYbox, myScale, xdecimals, ydecimals, xAxisLabel, yAxisLabel];
 }
 

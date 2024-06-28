@@ -5,8 +5,9 @@ Is it worth it?
 
 
 
-let trip = 0; //accumulated in checkInput() in file util.js - used to count html input changes
+let trip = 0; //accumulated in  fetchminmax() in file util.js - used to count html input changes
 let slowdown = true; //use for debug
+//globalThis.cnt = -1;
 
 function setup() {
   cvs = createCanvas(700, 700);
@@ -52,37 +53,27 @@ function draw() {
   let ydecimals = obj1[8]
   let xAxisLabel = obj1[9];
   let yAxisLabel = obj1[10];
-  background('#d4ffff');
+
+  background('#ffffff');
   //translate (xmin,ymin) to the LL corner of box.
   push();
   let obj2;
   /*obj2 finds a point exactly correct for scale(1,1)
   to do the graph translation. that is, we will translate(obj2[0],obj2[1])
-  It will NOT get an aspect ratio of 1.
   It will assure that the plot is using the same units as xmin,xmax and ymin,ymax
   */
-  //  console.log(box.canvasUnits(0, 0));
   obj2 = box.canvasUnits(xmin, ymin, xmin, xmax, ymin, ymax);
-
-  // fill('red');
-  // circle(obj2[0], obj2[1], 10);  //puts a red blob at (xmin,ymin)
-  // noFill;
-
-
   translate(obj2[0], obj2[1]);
   scale(myScale);
   scale(1, -1);
 
-  
+  exampleDisplays(xmin,xmax);
+  // **********************************************************************************************************
   //In this section, call your math routine. It can be written in 'functionsToPlot.js'
-  //spiral(); //spiral runs noLoop() and requires to start over again. reason is to save CPU from overheating.
-  //circlemath(); //just draws a circle 
-  expmath(500, xmin, xmax); //subroutine fills arrays x and y and show them. Arguments are (npts,xmin,xmax).
 
- if(document.getElementById('showgrid').checked){;
-  //console.log(document.getElementById('showgrid').value);
-  grid.show(); //class grid in in file functionsToPlot.js
- }
+  // call your function that fills global array x and global array y here.
+
+ 
   pop();
 
   //box.thebox() puts everything on screen except for your math function.
@@ -95,4 +86,42 @@ function draw() {
   // }
 }
 
+function exampleDisplays(xmin, xmax) {
+  if (document.getElementById('spiral').checked) {
+    myObj.spiral();
+    myObj.zeroCounters('spiral1')
+    document.getElementById('demo').innerHTML = "myObj.spicnt: " + str(myObj.spicnt);
+  }
 
+  if (document.getElementById('circle').checked) {
+    myObj.circlemath();
+    myObj.zeroCounters('circle1')
+    document.getElementById('demo').innerHTML = "myObj.circnt: " + str(myObj.circnt);
+  }
+
+  if (document.getElementById('expmath').checked) {
+    myObj.expmath(1000, -15, 15);
+    myObj.zeroCounters('expmath1')
+    document.getElementById('demo').innerHTML = "myObj.expcnt: " + str(myObj.expcnt);
+  }
+
+  if (document.getElementById('squircle').checked) {
+    myObj.squircle();
+    myObj.zeroCounters('squircle1')
+    document.getElementById('demo').innerHTML = "myObj.squcnt: " + str(myObj.squcnt);
+  }
+
+  if (document.getElementById('Weierstrass').checked) {
+    myObj.weierstrass(1000, xmin, xmax);
+    myObj.zeroCounters('weierstrass1')
+    document.getElementById('demo').innerHTML = "myObj.weicnt: " + str(myObj.weicnt);
+  }
+
+
+  /* ******************************************************************************************************** */
+  if (document.getElementById('showgrid').checked) {
+    ;
+    //console.log(document.getElementById('showgrid').value);
+    grid.show(); //class grid in in file functionsToPlot.js
+  }
+  } //end function exampleDisplays()

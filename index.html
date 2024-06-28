@@ -20,39 +20,65 @@
 
     <h4></h4> <!-- adds spacing under the canvas -->
 
+    <div id="examples">
+      
+      <input type="radio" name="shape" id="spiral" value="no">
+      <label for="spiral">Spiral</label>
+
+      <input type="radio" name="shape" id="expmath" value="no">
+      <label for="expmath">y=x^2</label>
+
+      <input type="radio" name="shape" id="circle" value="no" >
+      <label for="circle">Circle</label>
+
+      <input type="radio" name="shape" id="Weierstrass" value="no" >
+      <label for="Weierstrass">Weierstrass sine</label>
+
+      <input type="radio" name="shape" id="squircle" value="no" >
+      <label for="squircle">S-squircle</label>
+
+      <input type="radio" name="shape" id="none" value="no">
+      <label for="none">Clear Examples</label>
+
+      
+
+    </div>
+
     <div id="text1">
-      <label for="xmin1">xmin:</label>
-      <input type="text" id="xmin" name="xmin1" size="2" onchange="checkInput('xmin')">
-      <label for="xmax1">xmax:</label>
-      <input type="text" id="xmax" name="xmax1" size="2" onchange="checkInput('xmax')">
-      <label for="ymin1">ymin:</label>
-      <input type="text" id="ymin" name="ymin1" size="3" onchange="checkInput('ymin')">
-      <label for="xmax1">ymax:</label>
-      <input type="text" id="ymax" name="ymax1" size="3" onchange="checkInput('ymax')">
+      <label for="xmin">xmin:</label>
+      <input type="text" id="xmin" name="xmin" size="2" onchange="checkInput('xmin')">
+      <label for="xmax">xmax:</label>
+      <input type="text" id="xmax" name="xmax" size="2" onchange="checkInput('xmax')">
+      <label for="ymin">ymin:</label>
+      <input type="text" id="ymin" name="ymin" size="3" onchange="checkInput('ymin')">
+      <label for="ymax">ymax:</label>
+      <input type="text" id="ymax" name="ymax" size="3" onchange="checkInput('ymax')">
       <label for="showgrid"> Show Grid </label>
       <input type="checkbox" id="showgrid" name="showgrid" value="no">
-      <br><label for="numXbox1">xBox:</label>
-      <input type="text" id="numXbox" name="numXbox1" size="2" onchange="checkInput('numXbox')">
-      <label for="numYbox1">yBox:</label>
-      <input type="text" id="numYbox" name="numYbox1" size="2" onchange="checkInput('numYbox')">
-      <label for="myScale1">Scale:</label>
-      <input type="text" id="myScale" name="myScale1" size="2" onchange="checkInput('myScale')">
-      <label for="xdecimals1">xdecimals:</label>
-      <input type="text" id="xdecimals" name="xdecimals1" size="2" onchange="checkInput('xdecimals')">
-      <label for="ydecimals1">ydecimals:</label>
-      <input type="text" id="ydecimals" name="ydecimals1" size="2" onchange="checkInput('ydecimals')">
-      
-      
-      <br><label for="xAxisLabel1">X Axis Label:</label>
-      <input type="text" id="xAxisLabel" name="xAxisLabel1" size="30" onchange="checkInput('xAxisLabel')">
-      <br><label for="yAxisLabel1">Y Axis Label:</label>
-      <input type="text" id="yAxisLabel" name="yAxisLabel1" size="30" onchange="checkInput('yAxisLabel')">
+      <br><label for="numXbox">xBox:</label>
+      <input type="text" id="numXbox" name="numXbox" size="2" onchange="checkInput('numXbox')">
+      <label for="numYbox">yBox:</label>
+      <input type="text" id="numYbox" name="numYbox" size="2" onchange="checkInput('numYbox')">
+      <label for="myScale">Scale:</label>
+      <input type="text" id="myScale" name="myScale" size="2" onchange="checkInput('myScale')">
+      <label for="xdecimals">xdecimals:</label>
+      <input type="text" id="xdecimals" name="xdecimals" size="2" onchange="checkInput('xdecimals')">
+      <label for="ydecimals">ydecimals:</label>
+      <input type="text" id="ydecimals" name="ydecimals" size="2" onchange="checkInput('ydecimals')">
+
+
+      <br><label for="xAxisLabel">X Axis Label:</label>
+      <input type="text" id="xAxisLabel" name="xAxisLabel" size="30" onchange="checkInput('xAxisLabel')">
+      <br><label for="yAxisLabel">Y Axis Label:</label>
+      <input type="text" id="yAxisLabel" name="yAxisLabel" size="30" onchange="checkInput('yAxisLabel')">
     </div> <!-- end div text 1-->
+
+    
 
 
     <!-- You can write into these locations using syntax from javascript such as
     document.getElementById("demoxdecimals").innerHTML = id1 + " is not a valid number value."; -->
-    <p id="demo"></p>
+    <p id="demo">Hi Narlin</p>
     <p id="demoxmin"></p>
     <p id="demoxmax"></p>
     <p id="demoymin"></p>
