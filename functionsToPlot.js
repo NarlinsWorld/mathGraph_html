@@ -72,7 +72,7 @@ const myObj = {
       y[i] = -r * theta * cos(theta);
     }
     lnplotxy(x, y);  //this one connects the dots
-    describe('',LABEL);
+    document.getElementById('description').innerHTML = 'A nice spiral.';
   }, //the comma ends function spiral
 
   circlemath: function () {
@@ -97,10 +97,10 @@ const myObj = {
       y[i] = r * sin(theta);
     }
     plotxy(x, y, npts);
-
+    document.getElementById('description').innerHTML = '';
   }, //end if function circlemath() 
 
-  expmath: function (npts,xmin,xmax) {
+  expmath: function (npts, xmin, xmax) {
     if (myObj.expcnt < 1) {
       document.getElementById('ymin').value = 0;
       document.getElementById('ymax').value = 100;
@@ -120,6 +120,7 @@ const myObj = {
       y[i] = x[i] * x[i];
     }
     plotxy(x, y, npts);
+    document.getElementById('description').innerHTML = '';
   }, // end of function expmath()
 
   r: function (a) {
@@ -156,11 +157,11 @@ const myObj = {
       //console.log(theta,myObj.r(theta), x[i],y[i]);
     }
     lnplotxy(x, y, npts);
-    describe('This s-squircle can be investigated further<br> at https://www.johndcook.com/blog/2022/10/27/variant-squircle/ ', LABEL);
+    document.getElementById('description').innerHTML = 'This s-squircle can be investigated further<br> at https://www.johndcook.com/blog/2022/10/27/variant-squircle/ ';
 
   }, // end of function squircle()
 
-  weierstrass: function (npts,xmin,xmax) {
+  weierstrass: function (npts, xmin, xmax) {
     if (myObj.weicnt < 1) {
       document.getElementById('xmin').value = 0;
       document.getElementById('xmax').value = 20;
@@ -185,8 +186,8 @@ const myObj = {
 
     sxy(1000, xmin, xmax);
     //if(trip>3){noLoop();}  //un-comment out this line if the computer  overheats  !!
+    document.getElementById('description').innerHTML = 'Red is a real sin curve. Black is a Weierstrass sine';
 
-    describe('Red is a real sin curve. Black is a Weierstrass sine', LABEL);
   } // end of function Weierstrass()
 
 

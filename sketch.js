@@ -54,7 +54,7 @@ function draw() {
   let xAxisLabel = obj1[9];
   let yAxisLabel = obj1[10];
 
-  background('#ffffff');
+  background('#d4ffff');
   //translate (xmin,ymin) to the LL corner of box.
   push();
   let obj2;
@@ -116,6 +116,13 @@ function exampleDisplays(xmin, xmax) {
     myObj.zeroCounters('weierstrass1')
     document.getElementById('demo').innerHTML = "myObj.weicnt: " + str(myObj.weicnt);
   }
+
+  if (document.getElementById('none').checked) {
+    // myObj.weierstrass(1000, xmin, xmax);
+    // myObj.zeroCounters('weierstrass1')
+    document.getElementById('description').innerHTML = '';
+  }
+  
 
 
   /* ******************************************************************************************************** */
